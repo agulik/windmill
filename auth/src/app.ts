@@ -16,7 +16,7 @@ app.use(json());
 app.use(
   cookieSession({
     signed: false, // the JWT is already encrypted
-    secure: true
+    secure: process.env.NODE_ENV !== 'test' // only shared when someone has an https connection
   })
 );
 
